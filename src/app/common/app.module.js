@@ -1,22 +1,23 @@
 import uiRouter from 'angular-ui-router';
 import { appComponent } from './app.component';
+import { appNav } from './app-nav/app-nav.module';
+import './app.scss';
 
 export const app = angular      
     .module('common.app', [
-        uiRouter
+        uiRouter,
+        appNav
     ])
     .component('app', appComponent)
-    .config(($stateProvider) => {
+    .config(($stateProvider, $urlRouterProvider) => {
         'ngInject';
 
         $stateProvider
         .state('app', {
-            redirectTo: 'contacts',
+           // redirectTo: 'contacts',
             url: '/app',
-            data: {
-            requiredAuth: true,
-            },
-            component: 'app',
+            component: 'app',// components name
         });
+        $urlRouterProvider.otherwise('/app');
   })
   .name;

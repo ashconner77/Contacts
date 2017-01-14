@@ -8,6 +8,7 @@ export const appComponent = {
             'ngInject';
 
             this.user = "Ashley!";
+            console.log(this.user);
         }
 
         logout() {
